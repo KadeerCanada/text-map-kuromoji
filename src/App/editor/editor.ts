@@ -12,11 +12,11 @@ require("codemirror/addon/mode/overlay.js");
 require("codemirror/mode/markdown/markdown.js");
 require("codemirror/mode/css/css.js");
 
-const defaultText = `最初に辞書を読み込むためロード時間がかかります。
+const defaultText = `لۇغەت قىسمىنى قاچىلاشقا ئازراق ۋاقىت كېتىدۇ.
 
-テキストを形態素解析した結果を右側のテーブルに表示します。
+تېكىست ئانالىز قىسمىنى سول تەرەپتە كۆرەلەيسىز.
 
-テキストを選択するとそのTokenの詳細情報を表示します。`;
+مەلۇم سۆزنى تاللىسىڭىز مۇناسىۋەتلىك تەپسىلىي ئۇچۇرلىرىنى كۆرەلەيسىز.`;
 
 export default class Editor {
     private editor: CodeMirror.EditorFromTextArea;

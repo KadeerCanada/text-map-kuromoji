@@ -39,21 +39,24 @@ export default class Editor {
             };
             const isSelected = this.selectedMark === token;
             const className = isSelected ? "node-link is-selected" : "node-link";
+            const pos = token.pos; //[token.pos, token.pos_detail_1, token.pos_detail_2, token.pos_detail_3].filter(x => x.indexOf('*')==-1).join(' > ');
+            const wtype = token.word_type == 'KNOWN' ? 'بار' : 'يوق';
+            if(token.surface_form.trim().length == 0) {
+                return '';
+            }
+//<th>${token.conjugated_type}</th>
+//<th>${token.conjugated_form}</th>
+// <th>${token.reading}</th>
+// <th>${token.pronunciation}</th>
             return yo`<tr onclick=${onClick}>
 <th><a role="button" onclick=${onClick} class=${className} title=${token.pos}>
     ${token.surface_form}
 </a></th>
-<th>${token.word_type}</th>
-<th>${token.word_position}</th>
-<th>${token.pos}</th>
-<th>${token.pos_detail_1}</th>
-<th>${token.pos_detail_2}</th>
-<th>${token.pos_detail_3}</th>
-<th>${token.conjugated_type}</th>
-<th>${token.conjugated_form}</th>
 <th>${token.basic_form}</th>
-<th>${token.reading}</th>
-<th>${token.pronunciation}</th>
+<th>${wtype}</th>
+<th>${token.word_position}</th>
+<th> ${pos} </th>
+<th>${token.conjugated_form}</th>
 </tr>`
         };
         const list = tokens.map(listItem);
@@ -61,19 +64,15 @@ export default class Editor {
     <table class="table">
     <thead class="table-head-sticky">
         <tr>
-            <th>表層形</th>
-            <!--<th>辞書内での単語ID</th> -->
-            <th>単語タイプ</th>
-            <th>単語の開始位置</th>
-            <th>品詞</th>
-            <th>品詞細分類1</th>
-            <th>品詞細分類2</th>
-            <th>品詞細分類3</th>
-            <th>活用型</th>
-            <th>活用形</th>
-            <th>基本形</th>
-            <th>読み</th>
-            <th>発音</th>
+            <th>تېكىست شەكلى</th>
+            <th>لۇغەت شەكلى</th>
+            <!--<th>لۇغەتتىكى سۆز ID سى</th> -->
+            <th>لۇغەتتە</th>
+            <th>ئورنى</th>
+            <th>سۆز تۈركۈمى</th>
+            <th>ئۆزگىرىشى</th>
+            <!--<th>ئوقۇلۇشى</th>
+            <th>تەلەپپۇز</th>-->
         </tr>
     </thead>
     <tbody>

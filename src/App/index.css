@@ -33,5 +33,5 @@ html, body, .main, #js-editor {
 .main-output {
     position: absolute;
     width: var(--main-right--width);
-    left: var(--main-left--width);
+    right: var(--main-left--width);
 }
